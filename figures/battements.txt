@@ -1,0 +1,4 @@
+\begin{tikzpicture}
+    \draw[very thick, samples=100, domain=0:2*pi] plot ( \x , {sin(deg(\x))} );
+    \draw[samples=200, smooth, domain=0:2*pi] plot ( \x , {sin(deg(\x))*sin(deg(24*\x))} );
+\end{tikzpicture}

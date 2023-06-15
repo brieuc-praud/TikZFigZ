@@ -1,0 +1,13 @@
+img.gallery {
+    height: 250px;
+    margin: 20px;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+}

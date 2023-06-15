@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+    % axes
+    \draw [->, thick] (-1,0) -- (8,0);
+    \draw [->, thick] (0,-1) -- (0,4);
+
+    % curves
+    \draw [thick, blue] (0,0) \foreach \x in {1,...,80} {-- (.1*\x, 1.1*\x^.2 + .1*rand)};
+    \draw [thick, red] (0,0) \foreach \x in {1,...,80} {-- (.1*\x, 1.03*\x^.2 + .1*rand)};
+\end{tikzpicture}

@@ -1,0 +1,8 @@
+\usetikzlibrary{shapes}
+\begin{tikzpicture}
+    \node[draw, circle, ball color=white, minimum size=30] () at (25,10) {catalyst};
+    \node[draw, cylinder,
+        shade, shading angle=210, opacity=0.4,
+        minimum height=100mm, minimum width=40mm,
+        aspect=1] () at (25,10) {};
+\end{tikzpicture}

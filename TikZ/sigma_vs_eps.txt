@@ -1,0 +1,50 @@
+\begin{tikzpicture}[scale=1.5, xscale=300, yscale=16]
+    \newcommand{\curveStyle}{thick}
+    \newcommand{\annotationStyle}{densely dotted}
+
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (0.002125, 0.170);
+    \coordinate (A1) at ({0.25*0.002125}, {0.25*0.170});
+    \coordinate (A2) at ({0.75*0.002125}, {0.75*0.170});
+    \coordinate (AA) at ({0.75*0.002125}, {0.5*0.170});
+    \coordinate (B) at (0.008, 0.215);
+    \coordinate (B1) at ({0.25*(0.008-0.002125)+0.002125}, {0.25*(0.215-0.170) + 0.170});
+    \coordinate (B2) at ({0.75*(0.008-0.002125)+0.002125}, {0.75*(0.215-0.170) + 0.170});
+    \coordinate (BB) at ({0.35*(0.008-0.002125)+0.002125}, {0.005*(0.215-0.170) + 0.170 - 0.0045});
+
+    \coordinate (C1) at ({0.008-0.215/80},0);
+    \coordinate (C2) at (0.008,0);
+
+    \coordinate (CC1) at ({0.008-0.215/80},-0.03);
+    \coordinate (CC2) at (0.008,-0.03);
+    \coordinate (CC3) at (0,-0.03);
+
+    %% True scale
+    \draw [->, >=stealth] (O) -- (0.01,0) node [right] {$\varepsilon$};
+    \draw [->, >=stealth] (O) -- (0,0.250) node [right] {$\sigma~(\mathrm{MPa})$};
+
+    \node (S1) at (0,0.170) {-};
+    \draw (S1) node [left] {$\sigma_{yield,1}=170$};
+    \node (S2) at (0,0.215) {-};
+    \draw (S2) node [left] {$\sigma_{yield,2}=215$};
+
+    \draw [\curveStyle] (O) -- (A);
+
+    %% False scale
+    \draw [\curveStyle] (A) -- (B);
+
+    %% Annotations
+    \draw [\annotationStyle] (A1) -| (A2);
+    \draw (AA) node [right] {\footnotesize $E=80~\mathrm{GPa}$};
+    \draw [\annotationStyle] (B1) -| (B2);
+    \draw (BB) node [right] {$\frac{EH}{E+H}$};
+
+    \draw (O) node [below] {$0$};
+
+    \draw [dashed] (0.008, 0.215) -- (C1) node [below] {$0.2$};
+    \draw [loosely dashed] (0.008, 0.215) -- (C2) node [below] {};
+
+    \draw [<->, >=stealth] (CC1) -- (CC2) node [midway, below] {$\varepsilon_e$};
+    \draw [<->, >=stealth] (CC1) -- (CC3) node [midway, below] {$\varepsilon_p$};
+
+\end{tikzpicture}

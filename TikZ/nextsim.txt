@@ -1,0 +1,56 @@
+\begin{tikzpicture}[scale=.8]
+    \begin{scope}
+        \draw[blue] (4,2.2) node {$\sigma_\mathrm{I} = q\sigma_\mathrm{II} + \sigma_\mathrm{c}$};
+        \draw[red] (6.5,-1.5) node {$\frac{\sigma_\mathrm{I}+\sigma_\mathrm{II}}{2} = \sigma_\mathrm{N_{max}}$};
+        \draw[red] (4.5,-4) node {$\frac{\sigma_\mathrm{I}+\sigma_\mathrm{II}}{2} = \sigma_\mathrm{N_{min}}$};
+
+        \clip(1,0) circle (4.2);
+
+        \fill [blue, opacity=.5, variable=\x] (-5, 8) -- (0,-2) -- (5, 8) -- cycle;
+
+        \draw[blue, variable=\x] plot [domain=0:5] ({\x}, {2*\x-2}) plot [domain=0:-5] ({\x}, {-2*\x-2});
+
+        \fill [red, opacity=.5, domain=-5:6, variable=\x] plot ({\x}, {-\x+3.5}) -- plot ({-\x}, {\x-0.5}) -- cycle;
+
+        \draw [red, domain=-5:6, variable=\x] plot ({\x}, {-\x+3.5});
+        \draw [red, domain=-5:6, variable=\x] plot ({-\x}, {\x-0.5});
+    \end{scope}
+
+    \draw [->] (-1.5,0) -- (5,0) node [right] {$\sigma_\mathrm{I}$};
+    \draw [->] (0,-4.5) -- (0,4.5) node [above] {$\sigma_\mathrm{II}$};
+
+    \draw [<-] (-1,2) -- ++(-1,1) -- ++(-1,0) node [left] {enveloppe};
+
+    \begin{scope}[xshift=12cm]
+        \begin{scope}
+            \clip(1,0) circle (4.2);
+
+            \filldraw [green, fill opacity=.5, domain=-5:6, variable=\x] (-3.5,5) -- (-1.5,1) -- (0.5,-1) -- (1.83,1.67) -- ++(-5,5) -- cycle;
+
+        \end{scope}
+
+        \draw [->] (-1.5,0) -- (4,0) node [right] {$\sigma_\mathrm{I}$};
+        \draw [->] (0,-2) -- (0,4.5) node [above] {$\sigma_\mathrm{II}$};
+
+        \draw [<-] (-1,2) -- ++(-1,1) -- ++(-1,0) node [left] {enveloppe};
+
+        \coordinate (A0) at (.5,2);
+
+        \coordinate (A1) at (1.5,3.5);
+        \coordinate (B1) at (1.05,2.45);
+        \coordinate (A2) at (2.5,1.5);
+        \coordinate (B2) at (1.423,0.857);
+
+
+        \fill [red] (A0) circle (.1) node [above] {$\sigma'$};
+
+        \fill [red] (A1) circle (.1) node [right] {$\sigma'$};
+        \draw [red, dotted, thick] (A1) -- (0,0);
+        \draw [red, ->, thick] (A1) -- (B1);
+
+        \fill [red] (A2) circle (.1) node [right] {$\sigma'$};
+        \draw [red, dotted, thick] (A2) -- (0,0);
+        \draw [red, ->, thick] (A2) -- (B2);
+    \end{scope}
+
+\end{tikzpicture}

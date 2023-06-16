@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \pgfmathsetmacro{\persp}{0.5};
+    \pgfmathsetmacro{\R}{2.5}
+    \pgfmathsetmacro{\Ra}{1.2}
+    \pgfmathsetmacro{\Rb}{.5}
+    \pgfmathsetmacro{\Rc}{.3}
+    \pgfmathsetmacro{\H}{1.25}
+    \pgfmathsetmacro{\shadeAng}{90}
+    \def\cycol{blue}
+    \shadedraw [shading angle=\shadeAng] (0,\H) ellipse ({\R} and \R*\persp);
+    \shadedraw [left color=black!80, right color=black!30] (0,\H) ellipse ({\Ra} and \Ra*\persp);
+    \shadedraw [shading angle=\shadeAng] (0,\H) ellipse ({\Rb} and \Rb*\persp);
+    \shadedraw [left color=black!80, right color=black!30] (0,\H) ellipse ({\Rc} and \Rc*\persp);
+    \shadedraw [shading angle=\shadeAng] (\R,0) arc (0:-180:{\R} and \R*\persp)
+    --++ (0,\H) arc (-180:0:{\R} and \R*\persp) -- cycle;
+
+    \shade [left color=red, right color=yellow, opacity=.5] (0,3) ellipse (1 and 2.2);
+    \shade [left color=red, right color=yellow, opacity=.7] (0,3.2) ellipse (1.2 and 2.5);
+
+    \draw [<-, >=stealth] (0,\H) -- (.8,1.5*\H) --++ (3,0) node [right] {methane inlet};
+    \draw [<-, >=stealth] (0.5,\H-.35) -- (1.5,-1.5*\H) --++ (4,0) node [right] {air inlet};
+\end{tikzpicture}

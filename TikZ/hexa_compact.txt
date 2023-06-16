@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+    \usetikzlibrary{quotes,angles}
+
+    \draw [gray] (0,0) circle (1) ;
+    \foreach \a in {30,90,...,330} \draw [gray] (\a:2) circle (1);
+
+    \draw (0,0) -- (0,2) node[midway, sloped]{\color{red}$/\!/$};
+    \draw(0,0) -- (-1.76, 0.96) node[midway,sloped]{\color{red}$/\!/$};
+    \draw(0,2) -- (-1.76, 0.96) node[midway, sloped]{\color{red}$/\!/$};
+
+
+    \draw
+    (-1.76,0.96) coordinate (d)
+    -- (0,0) coordinate (e)
+    -- (0,2) coordinate (f)
+    pic["\scriptsize$60$\textdegree", draw=red, <->, angle eccentricity=0.7, angle radius=7mm]
+        {angle=f--e--d};
+\end{tikzpicture}

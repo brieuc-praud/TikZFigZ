@@ -1,0 +1,27 @@
+\usepackage{ifthen}
+\begin{tikzpicture}
+    \usetikzlibrary{shapes.geometric}
+    \def\couleur{white}
+    \def\maillonColor{red}
+    \def\fibreColor{blue}
+
+    \foreach \x in {1,...,5} \foreach \y in {1,...,8} \foreach \z in {1,...,5}
+        {
+            \draw \pgfextra
+            {
+                \ifthenelse{
+                    \( \x=2 \AND \z=5 \)
+                }{\def\couleur{\fibreColor}}{}
+                \ifthenelse{
+                    \( \x=4 \AND \y=2 \AND \z=5 \)
+                }{\def\couleur{\maillonColor}}{}
+            }
+            node [draw, cylinder, fill=\couleur, minimum height=5mm, rotate=90]
+            () at (.4*\x, .25*\y, .4*\z) {};
+        }
+
+    \draw (2.5,1.2,6) node []
+    { \textcolor{\fibreColor}{$\bullet$} fibre
+        $\:$ \textcolor{\maillonColor}{$\bullet$} maillon };
+
+\end{tikzpicture}

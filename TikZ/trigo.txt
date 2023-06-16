@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=3.5]
+    \newcommand{\ang}{60}
+
+    \coordinate (M) at ({cos(\ang)}, {sin(\ang)});
+    \coordinate (N) at ({sec(\ang)},0);
+
+    \draw (0,0) circle (1);
+    \draw [>=stealth, ->] (-1.2,0) -- (2.3,0);
+    \draw [>=stealth, ->] (0,-1.2) -- (0,1.2);
+
+    \draw (0,0) -- (M) node [above right] {$M$};
+    \draw[>=stealth, ->] (0.7,0) arc (0:\ang:0.7) node [midway, right] {$\alpha$};
+    \draw[dashed] (M) -- ({cos(\ang)}, 0) node[below]{$\cos \alpha$};
+    \draw[dashed] (M) -- (0, {sin(\ang)}) node[left] {$\sin \alpha$};
+
+    \draw (M) -- (N) node [midway, above, sloped] {$\tan \alpha$};
+\end{tikzpicture}

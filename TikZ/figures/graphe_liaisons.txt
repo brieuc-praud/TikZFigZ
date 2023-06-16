@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \tikzset{place/.style={circle, scale=2, draw}}
+    \tikzset{arrow/.style={thick, >=stealth}}
+
+    \node [place] (a) at (3,3) {a};
+    \node [place] (b) at (0,6) {b};
+    \node [place] (c) at (-3,3) {c};
+    \node [place] (d) at (0,0) {d};
+
+    %Liaisons
+    \draw [arrow, ->] (d) to [bend right] node [midway, below right] {$\$_{da}$} (a);
+    \draw [arrow, <-] (d) to [bend left] node [midway, below left] {$\$_{cd}$} (c);
+    \draw [arrow, ->] (a) to [bend right] node [midway, above right] {$\$_{ab}$} (b);
+    \draw [arrow, <-] (c) to [bend left] node [midway, above left] {$\$_{bc}$} (b);
+    \draw [arrow, ->] (d) to [bend left] node [midway, left] {$\$_{F}$} (b);
+    \draw [arrow, ->] (d) to [bend right] node [midway, right] {$\$_{\tau}$} (b);
+\end{tikzpicture}

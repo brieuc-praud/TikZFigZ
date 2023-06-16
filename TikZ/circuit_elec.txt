@@ -1,0 +1,20 @@
+\usepackage[EFvoltages]{circuitikz}
+
+\begin{tikzpicture}
+    \draw (0,0) to [V] (0,4);
+    \draw (0,4) to [diode] (2,4);
+    \draw (2,4) to [L, l=$L$] (2,2) to [european potentiometer, l=$R$] (2,0);
+    \draw (2,4) -- (4,4);
+    \draw [>=stealth,->] (4,4) -- +(1,0);
+    \draw (4,4) to [C, l=$C$] (4,0);
+    \draw (4,0) -- (0,0);
+    \draw (0,0) -- +(0,-0.5);
+
+    \draw (-.5,-.5) -- (.5,-.5);
+    \foreach \x in {-3,...,2}
+        {
+            \draw (.2*\x+.035,-.68) node {$/$};
+        }
+
+    \draw (-1.4,1.8) -| (-1.2,2.2) -| (-1.0, 1.8) -| (-.8,2.2) -- (-.65,2.2);
+\end{tikzpicture}

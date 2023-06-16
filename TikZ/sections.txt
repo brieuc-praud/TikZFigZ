@@ -1,0 +1,35 @@
+\tikzset{section/.style={pattern=north east lines, pattern color=black!40, even odd rule}}
+\tikzset{cote/.style={thick, >=latex}}
+\newcommand{\mm}{~\mathrm{mm}}
+
+\begin{tikzpicture}
+    \usetikzlibrary{patterns}
+    \begin{scope}[xshift=-5cm]
+        \draw [section] (0,0) circle (1);
+        \draw [cote, >=latex, >-<] (-135:1.1) -- (45:1.1) node [right] {$d_A=20\mm$};
+        \draw [cote] (45:1) -- (45:1.5);
+        \draw [cote] (-135:1) -- (-135:1.5);
+    \end{scope}
+    \draw (-5,-2.5) node {Poutre A};
+    \begin{scope}[xshift=0cm]
+        \draw [section] (0,0) circle (.8) circle (1);
+
+        \draw [densely dotted] (-.8,1.1) -- (-.8,-1.5);
+        \draw [densely dotted] (.8,1.1) -- (.8,-1.5);
+
+        \draw [densely dotted] (-1,1.5) -- (-1,-1.1);
+        \draw [densely dotted] (1,1.5) -- (1,-1.1);
+
+        \draw [cote, <->] (-1,1.3) -- (1,1.3) node [midway, above=1.5mm] {$d_{B,e}=30\mm$};
+        \draw [cote, <->] (-.8,-1.3) -- (.8,-1.3) node [midway, below=1.5mm] {$d_{B,i}=26\mm$};
+    \end{scope}
+    \draw (0,-2.5) node {Poutre B};
+    \begin{scope}[xshift=5cm]
+        \draw [section] (-1,-.7) rectangle (1,.7) (-.8,-.5) rectangle (.8,.5);
+        \draw [cote, <->] (-1.3,-.7) -- (-1.3,.7) node [midway, left] {$l_2=20\mm$};
+        \draw [cote, <->] (-1,-1) -- (1,-1) node [midway, below] {$l_1=40\mm$};
+        \draw [cote, ->] (.4,0) -- (.8,0);
+        \draw [cote, <-] (1,0) -- (1.4,0) node [right] {$e=2\mm$};
+    \end{scope}
+    \draw (5,-2.5) node {Poutre C};
+\end{tikzpicture}

@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \draw (0,0,0) -- (0,1,0) -- (0,1,1) -- (0,0,1) -- cycle;
+    \draw (0,0,1) -- (-2,0,1);
+    \draw (0,1,1) -- (-2,1,1);
+    \draw (0,1,0) -- (-2,1,0);
+
+
+    \draw [>=stealth, <->] (0,-.3,1) -- (0,-.3,0) node [midway, below right] {$b$};
+    \draw [>=stealth, <->] (0,1,-.3) -- (0,0,-.3) node [midway, right] {$h$};
+
+    \draw [dotted] (-3,.5,.5) -- (1.,.5,.5);
+    \draw (0,.5,.5) node {$\times$};
+
+    \draw [>=stealth, ->] (-5,.5,.5) -- (-4,.5,.5) node [right] {$\vec{x}$};
+    \draw [>=stealth, ->] (-5,.5,.5) -- (-5,1.5,.5) node [right] {$\vec{y}$};
+    \draw [>=stealth, ->] (-5,.5,.5) -- (-5,.5,1.5) node [right] {$\vec{z}$};
+\end{tikzpicture}

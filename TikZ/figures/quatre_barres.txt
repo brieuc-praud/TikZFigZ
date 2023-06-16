@@ -1,0 +1,61 @@
+\usetikzlibrary{decorations.pathmorphing}
+
+\begin{tikzpicture}[scale=3, decoration={coil,aspect=0.3,segment length=3mm,amplitude=2mm}]
+    \newcommand{\pivot}[1]
+    {
+        \draw[white] #1 node {$\bullet$};
+        \draw #1 node {$\circ$};
+    }
+
+    %Points
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (2,1);
+    \coordinate (C) at (0,.6);
+    \coordinate (D) at (2,0);
+    %Nommage des points
+    \draw (A) node[below left] {$A$};
+    \draw (B) node[above right] {$B$};
+    \draw (C) node[above left] {$C$};
+    \draw (D) node[below right] {$D$};
+
+    %fémur/tibia
+    \draw [opacity=0] (A) -- (B) node[near end, below=4mm, opacity=1] {$a$}
+    node [pos=.5] (E) {}
+    node [pos=.8] (F) {};
+    \draw (B) -- (C) node [color=gray!40,midway,above,sloped] {\textit{fémur}}
+    node [midway,below] {$b$};
+    \draw [opacity=0] (C) -- (D) node[near end, above=2mm, opacity=1] {$c$}
+    node [pos=.5] (M) {}
+    node [pos=.8] (N) {};
+    \draw (D) -- (A) node[color=gray!40,midway,below] {\textit{tibia}}
+    node[midway,above] {$d$};
+    %ligaments croisés                        
+    \draw (A) -- (E.center);
+    \draw [decorate] (E.center) --  (F.center);
+    \draw (F.center) -- (B);
+    \draw (C) -- (M.center);
+    \draw [decorate] (M.center) --  (N.center);
+    \draw (N.center) -- (D);
+
+    %\draw [decorate] (A) -- (B);
+
+    % Angles
+    \draw[>=stealth,->] (A)+(0.35,0.01) arc (0:22:0.35) node[midway,right] {$\alpha$};
+    \draw[>=stealth,->] (C)+(1.7,0.02) arc (0:10:1.7) node[midway,right] {$\beta$};
+    \draw[>=stealth,->] (D)+(0.2,0.01) arc (0:160:0.2 ) node[midway,above] {$\gamma$};
+
+    \draw[dotted] (C) -- ++(2,0);
+
+
+
+    % pivots
+    \pivot{(A)}
+    \pivot{(B)}
+    \pivot{(C)}
+    \pivot{(D)}
+
+
+    \draw[->] (-.5,0) -- (-.5,0.1) node [midway, left] {$\Im$};
+    \draw[->] (-.5,0) -- (-.4,0) node [midway, below] {$\Re$};
+
+\end{tikzpicture}

@@ -1,6 +1,0 @@
-\usetikzlibrary{lindenmayersystems}
-
-\begin{tikzpicture}
-    \draw [l-system={rule set={F -> F-F++F-F}, step=1pt, angle=60,axiom=F++F++F, order=4}]
-    lindenmayer system -- cycle;
-\end{tikzpicture}

@@ -1,3 +1,0 @@
-\begin{tikzpicture}
-    \draw[samples=100, smooth, domain=0:10] plot ( {sin(deg(3*\x))} , {sin(deg(5*\x + pi/4))} );
-\end{tikzpicture}

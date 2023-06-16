@@ -1,3 +1,0 @@
-\begin{tikzpicture}[scale=5]
-    \draw[samples=500, smooth,  domain=0:200] plot ( {sin(deg(\x))*exp(-0.02*\x)} , {sin(deg(1.01*\x))*exp(-0.05*\x)} );
-\end{tikzpicture}
